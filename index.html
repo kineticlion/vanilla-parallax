@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <section>
+        <ul>
+            <li class="scroll" data-rate="3">Par</li>
+            <li class="scroll" data-rate="2">al</li>
+            <li class="scroll" data-rate="1">lax</li>
+        </ul>
+    </section>
+    <section></section>
+    <script>
+        const translateElement = (e) => {
+            let yOffset = window.pageYOffset;
+            const targets = document.querySelectorAll('.scroll');
+            for (let i = 0; i < targets.length; i++) {
+                const position = yOffset * targets[i].dataset.rate;
+                targets[i].style.transform = `translate3d(0px,-${position}px,0px)`;
+            }
+        }
+        window.addEventListener('scroll', translateElement)
+    </script>
+</body>
+
+</html>
